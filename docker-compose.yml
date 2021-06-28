@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=root 
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
+    ports:
+      - '5432:5432'
+    networks:
+      - devnet
+    volumes:
+      - ./devops/local/docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.service.sql
+
+networks:
+  devnet:
+    name: whats_the_tune_local_devnet
