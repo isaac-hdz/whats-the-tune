@@ -19,18 +19,7 @@ import { User } from './users/user.entity';
   imports: [
     UsersModule,
     AuthModule,
-    TypeOrmModule.forRoot({
-      // TODO[IH]: env variables
-      type: 'mysql',
-      host: 'localhost',
-      port: 5432,
-      username: 'whats-the-tune',
-      password: 'hunter2',
-      database: 'whats-the-tune',
-      entities: [User],
-      // TODO[IH]: the following should not be used in production
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [AppService],
